@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4th-assignment</title>
+</head>
+<body>
+    <div id="digital-clock" onload="CurrentDate()">
+
+    </div>
+
+    <script>
+        function CurrentDate(){
+            let date = new Date();
+            // I have stored time in below three variables
+            let hours = date.getHours();
+            let minutes = date.getMinutes();
+            let seconds = date.getSeconds();
+            let amPM = ' AM';
+            //console.log(hours)
+            // I have set 12 insted of 0 on night
+            if(hours==0){
+                hours=12;
+            }
+            // I have set PM after 12 
+            if (hours>12){
+                hours= hours-12;
+                amPM = 'PM';
+            }
+            // I have sent the value by getElementById
+            document.getElementById("digital-clock").innerText = hours + ":" + minutes + ":" + seconds + amPM; 
+            
+        }
+        CurrentDate()
+        setInterval(CurrentDate,1000); 
+         
+       
+    </script>
+    
+</body>
+</html>
